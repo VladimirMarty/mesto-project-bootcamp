@@ -1,0 +1,17 @@
+ .popap__conteiner {
+     background-color: white;
+     align-content: center;
+     border-radius: 10px;
+     height: 330px;
+     max-width: 430px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     position: fixed;
+     font-family: 'Inter', Arial, sans-serif;
+ }
+ 
+ .popap__conteiner.active {
+     transform: translate(-50%, -50%) scale(1);
+     transition: 0.5s all;
+ }

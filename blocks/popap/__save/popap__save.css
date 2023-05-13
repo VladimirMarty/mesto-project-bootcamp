@@ -1,0 +1,16 @@
+.popap__save {
+    background: #000;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 22px;
+    padding: 0;
+    text-align: center;
+    width: 358px;
+}
+
+.popap__save:hover {
+    opacity: 0.5;
+}

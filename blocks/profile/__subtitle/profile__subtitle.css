@@ -5,4 +5,7 @@
     max-width: 240px;
     min-height: 14px;
     font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

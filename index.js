@@ -48,23 +48,3 @@ savebutton.addEventListener("click", (eventClick) => {
     popap.classList.remove("active");
 
 })
-
-
-// openPopupButtons.forEach((button) => { // Перебираем все кнопки
-//             button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
-//                 e.preventDefault(); // Предотвращаем дефолтное поведение браузера
-//                 popup.classList.add('active'); // Добавляем класс 'active' для фона
-//                 popapConteiner.classList.add('active');
-//             });
-
-//             closepopap.addEventListener('click', () => { // Вешаем обработчик на крестик
-//                 popup.classList.remove('active'); // Убираем активный класс с фона
-//                 popapConteiner.classList.remove('active'); // И с окна
-//             });
-
-//             document.addEventListener('click', (e) => { // Вешаем обработчик на весь документ
-//                 if (e.target === popupBg) { // Если цель клика - фот, то:
-//                     popup.classList.remove('active'); // Убираем активный класс с фона
-//                     popapConteiner.classList.remove('active'); // И с окна
-//                 }
-//             });

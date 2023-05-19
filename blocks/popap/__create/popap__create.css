@@ -1,4 +1,4 @@
-.popap__save {
+.popap__create {
     background: #000;
     border-radius: 2px;
     color: #fff;
@@ -9,9 +9,9 @@
     padding: 0;
     text-align: center;
     width: 358px;
-    background-image: url(../../../images/Submit\ Button.svg);
+    background-image: url(../../../images/SubmitButton1.svg);
 }
 
-.popap__save:hover {
+.popap__create:hover {
     opacity: 0.8;
 }

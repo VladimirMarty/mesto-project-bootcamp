@@ -2,6 +2,14 @@
     width: 150px;
     height: 50px;
     background-image: url(../../../images/Add\ Button.png);
+    background-color: black;
+    background-position: center;
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+}
+
+.profile__edit-button:hover {
+    opacity: 0.6;
 }
 
 @media (max-width: 590px) {

@@ -50,7 +50,9 @@ closePopapMesto.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapMesto.classList.remove("active");
 })
-const template = document.getElementById('elementTemplate ').content.querySelector('.element');
+const template = document
+    .getElementById('elementTemplate')
+    .content.querySelector('.element');
 const cardsForm = document.querySelector('.popap__form');
 const inputText = cardsForm.querySelector('.popap__new-mesto ');
 const inputUrl = cardsForm.querySelector('.popap__link ');
@@ -58,26 +60,23 @@ const cardsContainer = document.querySelector('.elements');
 const createButton = document.querySelector('.popap__create');
 
 
-function createText(name) {
-    const nameElement = template.cloneNode(true);
-    const textElement = nameElement.querySelector(".element__paragraph ");
+function createText(name, photo) {
+    const cardElement = template.cloneNode(true);
+    const textElement = cardElement.querySelector(".element__paragraph ");
     textElement.textContent = name;
-    return nameElement;
+    const urlElement = cardElement.querySelector(".element__image  ");
+    urlElement.textContent = photo;
+    return cardElement;
 }
 
-function createImage(photo) {
-    const linkElement = template.cloneNode(true);
-    const urlElement = linkElement.querySelector(".element__image  ");
-    linkElement.textContent = photo;
-    return linkElement;
-}
+
 
 function handleFormSubmit(event) {
     event.preventDefault();
     const newText = createText(inputText.value);
     const newImage = createText(inputUrl.value);
-    cardsContainer.prepend(newText);
-    cardsContainer.prepend(newImage);
+    cardsContainer.prepend(newText, newImage);
+
 
 
 }

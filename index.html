@@ -39,54 +39,62 @@
 
 
             <section class="elements ">
-                <div class="element ">
+                <!-- <div class="element ">
+
                     <img src="images/kirill-pershin-1088404-unsplash.jpg " alt=" Карачаевск" class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Карачаевск</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
-                    </div>
 
+                    </div>
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
                 </div>
                 <div class="element ">
                     <img src="images/kirill-pershin-1404681-unsplash.png " alt="Гора Эльбрус " class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Гора Эльбрус</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
                     </div>
-
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
                 </div>
                 <div class="element ">
                     <img src="images/kirill-pershin-1556355-unsplash (1).png " alt=" Донбай" class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Донбай</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
                     </div>
-
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
                 </div>
                 <div class="element ">
                     <img src="images/kirill-pershin-1404681-unsplash.png " alt=" Гора Эльбрус" class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Гора Эльбрус</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
                     </div>
-
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
                 </div>
                 <div class="element ">
                     <img src="images/kirill-pershin-1556355-unsplash (1).png " alt="Донбай " class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Донбай</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
                     </div>
-
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
                 </div>
                 <div class="element ">
                     <img src="images/kirill-pershin-1088404-unsplash.jpg " alt=" Карачаево-Черкесия" class="element__image ">
+
                     <div class="element__bottom ">
                         <p class="element__paragraph ">Карачаево-Черкесия</p>
                         <input type="image" src="images/Vector (1).svg" class="element__like" />
                     </div>
-
-                </div>
+                    <button type="button" class="element__trash" aria-label="Delete"></button>
+                </div> -->
             </section>
 
 
@@ -103,9 +111,10 @@
 
             <template id="elementTemplate">
                     <div class="element">
-                        <img src="-" alt="-" class="element__image ">
-                        <div class="element__bottom ">
-                            <p class="element__paragraph "></p>
+                        <img src="" alt="" class="element__image">
+                        <button type="button" class="element__trash" aria-label="Delete"></button> 
+                        <div class="element__bottom">
+                            <p class="element__paragraph"></p>
                             <button type='button' class="element__like"></button>
                         </div>
                     </div>
@@ -145,7 +154,7 @@
                     <input type="text" class="popap__name " placeholder="Имя" />
                     <input type="text" class="popap__yours " placeholder="О себе " />
 
-                    <button type="submit" class="popap__save "></button>
+                    <button type="button" class="popap__save "></button>
                 </div>
             </div>
         </div>
@@ -153,17 +162,17 @@
 
 
 
-    <div class="popap popap-mesto ">
-        <div class="popap__conteiner ">
-            <div class="popap__body ">
-                <input type="image " src="images/Close Icon (1).svg " class="popap-mesto__close-botton " />
-                <div class="popap__form ">
-                    <h2 class=" popap__title ">Новое место</h2>
+    <div class="popap popap-mesto">
+        <div class="popap__conteiner">
+            <div class="popap__body">
+                <input type="image" src="images/Close Icon (1).svg" class="popap-mesto__close-botton" />
+                <div class="popap__form">
+                    <h2 class=" popap__title">Новое место</h2>
 
-                    <input type="text " class="popap__new-mesto " placeholder="Название " />
-                    <input type="url " class="popap__link " placeholder="Ссылку на картинку " />
+                    <input type="text" class="popap__new-mesto" placeholder="Название" />
+                    <input type="url" class="popap__link" placeholder="Ссылку на картинку" />
 
-                    <button type="submit" class="popap__create "></button>
+                    <button type="submit" class="popap__create"></button>
                 </div>
             </div>
         </div>

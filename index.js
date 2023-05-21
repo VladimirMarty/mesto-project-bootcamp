@@ -20,7 +20,7 @@ for (let hear of hearth) {
 }
 
 
-//
+/
 // попап редактирование профиля
 openPopapProfile.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
@@ -52,96 +52,7 @@ saveButton.addEventListener("click", (eventClick) => {
 
 
 
-// openPopapMesto.addEventListener("click", (eventClick) => {
-//     eventClick.preventDefault();
-//     popapMesto.classList.add("active");
 
-
-// });
-// closePopapMesto.addEventListener("click", (eventClick) => {
-//     eventClick.preventDefault();
-//     popapMesto.classList.remove("active");
-// });
-
-
-
-
-
-// const template = document
-//     .getElementById('elementTemplate')
-//     .content.querySelector('.element');
-// const cardsForm = document.querySelector('.popap__form');
-// const inputText = cardsForm.querySelector('.popap__new-mesto ');
-// const inputUrl = cardsForm.querySelector('.popap__link ');
-// const cardsContainer = document.querySelector('.elements');
-// const createButton = document.querySelector('.popap__create');
-
-
-// function createText() {
-//     const cardElement = template.cloneNode(true);
-//     const textElement = cardElement.querySelector(".element__paragraph ");
-//     textElement.textContent = name;
-//     const urlElement = cardElement.querySelector(".element__image  ");
-//     urlElement.textContent = photo;
-//     return cardElement;
-// }
-
-
-
-// function handleFormSubmit(event) {
-//     event.preventDefault();
-//     const newText = createText(inputText.value);
-//     const newImage = createText(inputUrl.value);
-//     cardsContainer.prepend(newText, newImage);
-
-
-
-// }
-
-// cardsForm.addEventListener('submit', handleFormSubmit);
-// function addNewCard() {
-//     const cardElement = template.cloneNode(true);
-//     const template = document
-//         .getElementById('elementTemplate')
-//         .content.querySelector('.element');
-//     const cardsForm = document.querySelector('.popap__form');
-//     const inputText = template.querySelector('.popap__new-mesto');
-//     const inputUrl = template.querySelector('.popap__link');
-//     const cardsContainer = document.querySelector('.elements');
-//     const createButton = document.querySelector('.popap__create');
-
-//     const textElement = cardElement.querySelector(".element__paragraph");
-//     const urlElement = cardElement.querySelector(".element__image");
-//     newPlaceTitle.textContent = inputText.value;
-//     newPlaceSrc.src = urlElement.value;
-//     newPlaceSrc.alt = inputText.value;
-//     contentI.prepend(cardElement);
-// }
-
-
-
-// cardsForm.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     addNewCard();
-//     cardsForm.reset();
-//     closePopapMesto();
-// })
-
-// cardsForm.addEventListener('submit', addNewCard);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //массив
 const initialCards = [{
         name: 'Архыз',
@@ -189,54 +100,11 @@ let inputNewMestoPhoto = document.querySelector('.popap__link');
 let nameElement = elementTemplate.content.querySelector('.element__paragraph');
 let link = elementTemplate.content.querySelector('.element__image');
 
-// const newImputsElements = document.querySelector('#elementTemplate');
-// const newElement = newImputsElements.querySelector('.element');
+
 let mestoConteiner = document.querySelector('.elements');
 let templateForm = document.querySelector('.popap__form');
 let createNewElementButton = document.querySelector('.popap__create');
 
-
-// function
-// addNewCard() {
-
-//     newElement = cloneNode(true);
-//     nameElement.textContent = inputNewMestoName.value;
-//     inputNewMestoPhoto.src = urlElement.value;
-//     inputNewMestoPhoto.alt = inputNewMestoName.value;
-//     mestoConteiner.prepend(newElement);
-
-// }
-
-
-
-
-
-
-
-// createNewElementButton.addEventListener("click", (eventClick) => {
-//         eventClick.preventDefault();
-//         newElement = newImputsElements.cloneNode(true);
-//         nameElement.textContent = inputNewMestoName.value;
-//         inputNewMestoPhoto.src = urlElement.value;
-//         inputNewMestoPhoto.alt = inputNewMestoName.value;
-//         mestoConteiner.prepend(newElement);
-//         popapMesto.classList.remove("active");
-//     })
-
-
-
-
-
-
-
-
-
-
-//createNewElementButton.addEventListener("click", (eventClick) => {
-//     eventClick.preventDefault();
-
-//     popapMesto.classList.remove("active");
-// })
 
 
 
@@ -253,9 +121,7 @@ createNewElementButton.addEventListener("click", (eventClick) => {
     }
 
     x(cardElement)
-        // nameElement.textContent = inputNewMestoName.value;
-        // inputNewMestoPhoto.src = urlElement.value;
-        // inputNewMestoPhoto.alt = inputNewMestoName.value;
+
     mestoConteiner.prepend(template);
     popapMesto.classList.remove("active");
 })

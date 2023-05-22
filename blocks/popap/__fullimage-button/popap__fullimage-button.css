@@ -1,0 +1,27 @@
+.popap__fullimage-button {
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../images/Close\ Icon\ \(1\).svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: -45px;
+    top: -45px;
+    z-index: 5;
+    padding: 0;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+.popap__fullimage-button:hover {
+    opacity: 60%;
+}
+
+@media screen and (max-width:320px) {
+    .popap__fullimage-button {
+        right: 0;
+        width: 20px;
+        height: 20px;
+    }
+}

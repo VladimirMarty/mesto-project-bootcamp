@@ -10,6 +10,8 @@
     padding-left: 16px;
     position: absolute;
     z-index: 1;
+    right: 20px;
+    top: 20px;
 }
 
 .element__trash:hover {

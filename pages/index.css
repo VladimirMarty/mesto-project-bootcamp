@@ -36,11 +36,11 @@
 @import url(../blocks/popap/__new-mesto/popap__new-mesto.css);
 @import url(../blocks/popap/__create/popap__create.css);
 @import url(../blocks/element/__trash/element__trash.css);
-@import url(../);
-@import url(../);
-@import url(../);
-@import url(../);
-@import url(../);
+@import url(../blocks/popap/__big-image/popap__big-image.css);
+@import url(../blocks/popap/__fullimage-button/popap__fullimage-button.css);
+@import url(../blocks/popap/__fullimage/popap__fullimage.css);
+@import url(../blocks/popap/__image/popap__image.css);
+@import url(../blocks/popap/__img-text/popap__img-text.css);
 @import url(../);
 @import url(../);
 @import url(../);

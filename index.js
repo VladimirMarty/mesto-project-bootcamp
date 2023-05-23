@@ -24,8 +24,6 @@ const initialCards = [{
         link: 'https://images.unsplash.com/photo-1543862475-eb136770ae9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
     }
 ];
-
-
 // задаем попап профиля 
 const popapProfile = document.querySelector(".popap-profile");
 const popapConteiner = document.querySelector(".popap__conteiner");
@@ -36,8 +34,6 @@ const profileName = document.querySelector(".profile__title");
 const profileBg = document.querySelector(".profile__subtitle");
 const newProfileName = document.querySelector(".popap__name");
 const newProfileBg = document.querySelector(".popap__yours");
-
-
 // задаем попап карточек 
 const templateElement = document.getElementById('elementTemplate').content.querySelector('.element');
 const elementsConteiner = document.querySelector('.elements');
@@ -49,71 +45,50 @@ const inputNewMestoPhoto = document.querySelector(".popap__link");
 const mestoConteiner = document.querySelector(".elements");
 const elementForm = document.querySelector(".popap__form");
 const createNewElementButton = document.querySelector(".popap__create");
-
-
 // задаем попап с большим фото 
 const bigImage = document.querySelector(".popap__image");
 const bigImagePopap = document.querySelector(".popap__big-image");
 const closeBigImage = document.querySelector(".popap__fullimage-button");
 const bigImageName = document.querySelector(".popap__img-text");
-
-
-// открыть попап профиля 
+// открываем попап профиля 
 openPopapProfile.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapProfile.classList.add("active");
     newProfileName.value = "";
     newProfileBg.value = "";
 });
-
-// закрыть попап профиля 
-closePopap.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    popapProfile.classList.remove("active");
-});
-
-// сохранить данные попапа профиля 
+// сохраняем данные попапа профиля 
 saveButton.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     profileName.textContent = newProfileName.value;
     profileBg.textContent = newProfileBg.value;
     popapProfile.classList.remove("active");
 });
-
-
-
-// закрыть попап карточки 
-closePopapMesto.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    popapMesto.classList.remove("active");
-});
-
-// функция попапа с большим фото 
+// закрываем попап профиля 
+closePopap.addEventListener("click", (eventClick) => {
+        eventClick.preventDefault();
+        popapProfile.classList.remove("active");
+    })
+    // функция попапа с большим фото 
 function openImageOnScreen(item) {
     bigImagePopap.classList.add('active');
     bigImage.src = item.src;
     bigImage.alt = item.alt;
     bigImageName.textContent = item.alt;
 };
-
-
-
 // закрываем попап с большой картинкой 
 closeBigImage.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     bigImagePopap.classList.remove("active");
 });
-
 // функция лайка 
 function addLike(item) {
-    item.classList.add('like');
+    item.classList.toggle('like');
 };
-
 // функция удаления карточки 
 function handleDeleteCard(item) {
     item.remove();
 };
-
 // функция создания новой карточки 
 function createNewElement(name, link) {
     // клонируем типлейт
@@ -124,53 +99,45 @@ function createNewElement(name, link) {
     nameElement.textContent = name;
     elementLink.src = link;
     elementLink.alt = name;
-    // добавляем лайк
+    // задаем лайк
     const likeBtn = cardElement.querySelector('.element__like');
-    // добавляем удаление
+    // присваеваем лайкам функцию лайков 
+    likeBtn.addEventListener("click", () =>
+        addLike(likeBtn)
+    );
+    // задаем удаление
     const deleteBtn = cardElement.querySelector('.element__trash');
     // присваеваем удалению функцию удаления
-    deleteBtn.addEventListener('click', () => handleDeleteCard(cardElement));
-    // присваеваем лайкам функцию лайков 
-
-    likeBtn.addEventListener("click", (eventClick) => {
-            console.log(eventClick);
-            likeBtn.classList.toggle('like');
-        })
-        // добавляем функцию открытия для фото 
-    elementLink.addEventListener('click', () => openImageOnScreen(elementLink));
-
-
+    deleteBtn.addEventListener('click', () =>
+        handleDeleteCard(cardElement)
+    );
+    // присваеваем фотографии открытие при нажатии на нее 
+    elementLink.addEventListener('click', () =>
+        openImageOnScreen(elementLink)
+    );
     // открыть попап карточки 
     openPopapMesto.addEventListener("click", (eventClick) => {
         eventClick.preventDefault();
         popapMesto.classList.add("active");
     });
-
     return cardElement;
 };
-
-// создание карточки 
+// создаем карточки 
 function handleFormSubmit() {
     const newElement = createNewElement(inputNewMestoName.value, inputNewMestoPhoto.value);
     elementsConteiner.append(newElement);
-
 };
-
 // выводим карточку с введенными данными 
 createNewElementButton.addEventListener('click', (eventClick) => {
-    eventClick.preventDefault();
-    handleFormSubmit();
-    popapMesto.classList.remove("active");
-})
-
-// закрыть попап карточки 
+        eventClick.preventDefault();
+        handleFormSubmit();
+        popapMesto.classList.remove("active");
+    })
+    // закрываем попап карточки 
 closePopapMesto.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapMesto.classList.remove("active");
 });
-
-
-
 // добавляем карточки из массива 
 initialCards.forEach((item) => {
     const newCard = createNewElement(item.name, item.link);

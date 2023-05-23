@@ -1,139 +1,178 @@
-let popapProfile = document.querySelector(".popap-profile");
-let popapConteiner = document.querySelector(".popap__conteiner");
-let openPopapProfile = document.querySelector(".profile__reduct-botton");
-let closePopap = document.querySelector(".popap__close-botton");
-let saveButton = document.querySelector(".popap__save");
-let profileName = document.querySelector(".profile__title");
-let profileBg = document.querySelector(".profile__subtitle");
-let newProfileName = document.querySelector(".popap__name");
-let newProfileBg = document.querySelector(".popap__yours");
-let popapMesto = document.querySelector(".popap-mesto");
-let openPopapMesto = document.querySelector(".profile__botton");
-let closePopapMesto = document.querySelector(".popap-mesto__close-botton");
+// массив карточек 
+const initialCards = [{
+        name: 'Ереван',
+        link: 'https://images.unsplash.com/photo-1595608216441-abc4557df27d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        name: 'Арарат',
+        link: 'https://images.unsplash.com/photo-1582798144276-d6c2e81b3025?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        name: 'Каскад',
+        link: 'https://images.unsplash.com/photo-1567960095052-d15f59a1a309?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
+    },
+    {
+        name: 'Храм Гарни',
+        link: 'https://images.unsplash.com/photo-1629761905941-a3801e2874e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        name: 'Севан',
+        link: 'https://images.unsplash.com/photo-1583610261946-5d88e555be93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+    },
+    {
+        name: 'Красота',
+        link: 'https://images.unsplash.com/photo-1543862475-eb136770ae9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
+    }
+];
+
+
+// задаем попап профиля 
+const popapProfile = document.querySelector(".popap-profile");
+const popapConteiner = document.querySelector(".popap__conteiner");
+const openPopapProfile = document.querySelector(".profile__reduct-botton");
+const closePopap = document.querySelector(".popap__close-botton");
+const saveButton = document.querySelector(".popap__save");
+const profileName = document.querySelector(".profile__title");
+const profileBg = document.querySelector(".profile__subtitle");
+const newProfileName = document.querySelector(".popap__name");
+const newProfileBg = document.querySelector(".popap__yours");
+
+
+// задаем попап карточек 
+const templateElement = document.getElementById('elementTemplate').content.querySelector('.element');
+const elementsConteiner = document.querySelector('.elements');
+const popapMesto = document.querySelector(".popap-mesto");
+const openPopapMesto = document.querySelector(".profile__botton");
+const closePopapMesto = document.querySelector(".popap-mesto__close-botton");
+const inputNewMestoName = document.querySelector(".popap__new-mesto");
+const inputNewMestoPhoto = document.querySelector(".popap__link");
+const mestoConteiner = document.querySelector(".elements");
+const elementForm = document.querySelector(".popap__form");
+const createNewElementButton = document.querySelector(".popap__create");
+
+
+// задаем попап с большим фото 
+const bigImage = document.querySelector(".popap__image");
+const bigImagePopap = document.querySelector(".popap__big-image");
+const closeBigImage = document.querySelector(".popap__fullimage-button");
+const bigImageName = document.querySelector(".popap__img-text");
+
+
+// открыть попап профиля 
 openPopapProfile.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapProfile.classList.add("active");
-    newProfileName.value = '';
-    newProfileBg.value = '';
-})
+    newProfileName.value = "";
+    newProfileBg.value = "";
+});
+
+// закрыть попап профиля 
 closePopap.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapProfile.classList.remove("active");
-})
-saveButton.addEventListener("click", (eventClick) => {
-        eventClick.preventDefault();
-        profileName.textContent = newProfileName.value;
-        profileBg.textContent = newProfileBg.value;
-        popapProfile.classList.remove("active");
-    })
-    // saveButton.addEventListener("onkeydown", (eventClick) => {
-    //     eventClick.preventDefault();
-    //     if (e.keyCode == 13) {
-    //         profileName.textContent = newProfileName.value;
-    //         profileBg.textContent = newProfileBg.value;
-    //         popapProfile.classList.remove("active");
-    //     }
-    // })
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-openPopapMesto.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    popapMesto.classList.add("active");
 });
+
+// сохранить данные попапа профиля 
+saveButton.addEventListener("click", (eventClick) => {
+    eventClick.preventDefault();
+    profileName.textContent = newProfileName.value;
+    profileBg.textContent = newProfileBg.value;
+    popapProfile.classList.remove("active");
+});
+
+
+
+// закрыть попап карточки 
 closePopapMesto.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapMesto.classList.remove("active");
 });
-let inputNewMestoName = document.querySelector('.popap__new-mesto');
-let inputNewMestoPhoto = document.querySelector('.popap__link');
-let nameElement = elementTemplate.content.querySelector('.element__paragraph');
-let link = elementTemplate.content.querySelector('.element__image');
-let mestoConteiner = document.querySelector('.elements');
-let templateForm = document.querySelector('.popap__form');
-let createNewElementButton = document.querySelector('.popap__create');
-createNewElementButton.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    let elementTemplate = document.querySelector('#elementTemplate');
-    let template = elementTemplate.content.querySelector('.element');
 
-    function x() {
-        nameElement.textContent = inputNewMestoName.value;
-        link.src = inputNewMestoPhoto.value;
-        link.alt = inputNewMestoName.value;
-        // link.addEventListener('click', (eventClick) => {
-        //     eventClick.preventDefault();
-        //     bigImagePopap.classList.add('active');
-        //     bigImage.alt = link.alt;
-        //     bigImageName = link.alt;
-        //     bigImage.src = link.src;
-        // });
-        // closeBigImage.addEventListener('click', (eventClick) => {
-        //     eventClick.preventDefault();
-        //     bigImagePopap.classList.remove("active");
-        // });
-    }
-    let cardElement = elementTemplate.content.cloneNode(true);
-    x(cardElement);
-    inputNewMestoName.value = '';
-    inputNewMestoPhoto.value = '';
-    const like = cardElement.querySelector('.element__like');
-    const deleteBtn = cardElement.querySelector('.element__trash');
-    like.addEventListener("click", (eventClick) => {
-        console.log(eventClick);
-        like.classList.toggle('like');
-    })
-    deleteBtn.addEventListener("click", (eventClick) => {
-        console.log(eventClick);
-        eventClick.srcElement.offsetParent.style.display = 'none';
-    })
-    mestoConteiner.prepend(cardElement);
-    popapMesto.classList.remove("active");
-})
-let bigImage = document.querySelector('.popap__image');
-let bigImagePopap = document.querySelector('.popap__big-image');
-let closeBigImage = document.querySelector('.popap__fullimage-button');
-let bigImageName = document.querySelector('.popap__img-text');
-
-// function openBigImage(item) {
-//     bigImagePopap.classList.add('active');
-//     bigImage.src = item.src;
-//     bigImage.alt = item.alt;
-//     bigImageName = item.alt;
-// };
-
-
-
-link.addEventListener('click', (eventClick) => {
-    eventClick.preventDefault();
+// функция попапа с большим фото 
+function openImageOnScreen(item) {
     bigImagePopap.classList.add('active');
-    bigImage.alt = link.alt;
-    bigImageName = link.alt;
-    bigImage.src = link.src;
-});
-closeBigImage.addEventListener('click', (eventClick) => {
+    bigImage.src = item.src;
+    bigImage.alt = item.alt;
+    bigImageName.textContent = item.alt;
+};
+
+
+
+// закрываем попап с большой картинкой 
+closeBigImage.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     bigImagePopap.classList.remove("active");
 });
+
+// функция лайка 
+function addLike(item) {
+    item.classList.add('like');
+};
+
+// функция удаления карточки 
+function handleDeleteCard(item) {
+    item.remove();
+};
+
+// функция создания новой карточки 
+function createNewElement(name, link) {
+    // клонируем типлейт
+    const cardElement = templateElement.cloneNode(true);
+    const nameElement = cardElement.querySelector(".element__paragraph");
+    const elementLink = cardElement.querySelector(".element__image");
+    // добавляем значения 
+    nameElement.textContent = name;
+    elementLink.src = link;
+    elementLink.alt = name;
+    // добавляем лайк
+    const likeBtn = cardElement.querySelector('.element__like');
+    // добавляем удаление
+    const deleteBtn = cardElement.querySelector('.element__trash');
+    // присваеваем удалению функцию удаления
+    deleteBtn.addEventListener('click', () => handleDeleteCard(cardElement));
+    // присваеваем лайкам функцию лайков 
+
+    likeBtn.addEventListener("click", (eventClick) => {
+            console.log(eventClick);
+            likeBtn.classList.toggle('like');
+        })
+        // добавляем функцию открытия для фото 
+    elementLink.addEventListener('click', () => openImageOnScreen(elementLink));
+
+
+    // открыть попап карточки 
+    openPopapMesto.addEventListener("click", (eventClick) => {
+        eventClick.preventDefault();
+        popapMesto.classList.add("active");
+    });
+
+    return cardElement;
+};
+
+// создание карточки 
+function handleFormSubmit() {
+    const newElement = createNewElement(inputNewMestoName.value, inputNewMestoPhoto.value);
+    elementsConteiner.append(newElement);
+
+};
+
+// выводим карточку с введенными данными 
+createNewElementButton.addEventListener('click', (eventClick) => {
+    eventClick.preventDefault();
+    handleFormSubmit();
+    popapMesto.classList.remove("active");
+})
+
+// закрыть попап карточки 
+closePopapMesto.addEventListener("click", (eventClick) => {
+    eventClick.preventDefault();
+    popapMesto.classList.remove("active");
+});
+
+
+
+// добавляем карточки из массива 
+initialCards.forEach((item) => {
+    const newCard = createNewElement(item.name, item.link);
+    elementsConteiner.append(newCard);
+})

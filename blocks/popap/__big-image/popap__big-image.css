@@ -1,12 +1,4 @@
 .popap__big-image {
-    max-width: 75vw;
-    max-height: 75vw;
-    object-fit: contain;
-    position: absolute;
-}
-
-@media screen and (max-width:320px) {
-    .popap__big-image {
-        margin: auto 40px;
-    }
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
 }

@@ -15,6 +15,11 @@
         </header>
 
         <main class=" main ">
+
+
+
+
+
             <section class="profile ">
                 <div class="profile__main">
                     <img src="images/WHuucfyvDNQ.jpg" alt="аватарка" class="profile__avatar">
@@ -28,11 +33,25 @@
                 </div>
                 <button type="buttom" class=" profile__botton "></button>
             </section>
+
+
+
+
+
             <section class="elements ">
             </section>
+
+
+
+
+
             <footer class="footer ">
                 <p class="footer__over ">© 2020 Mesto Russia</p>
             </footer>
+
+
+
+
             <template id="elementTemplate">
                     <div class="element">
                         <img src="" alt="" class="element__image">
@@ -43,45 +62,76 @@
                         <button type="button" class="element__trash" aria-label="Delete"></button>
                     </div>
                     </template>
+
+
+
+
         </main>
     </div>
+
+
+
+
+
     <div class="popap popap-profile">
         <div class="popap__conteiner ">
             <div class="popap__body ">
                 <input type="image" src="images/Close Icon (1).svg" class="popap__close-botton" />
-                <div class="popap__form ">
+                <form class="popap__form" name="profile" novalidate>
                     <h2 class=" popap__title ">Редактировать профиль</h2>
 
-                    <input type="text" class="popap__name " placeholder="Имя" />
-                    <input type="text" class="popap__yours " placeholder="О себе " />
+                    <input type="text" class="popap__input popap__name " placeholder="Имя" id="profilename" required minlength="2" maxlength="40" />
+                    <span class="popap__span" id="error-profilename"></span>
+                    <input type="text " class="popap__input popap__yours " placeholder="О себе " id="profiletext " required minlength="2" maxlength="200" />
+                    <span class="popap__span " id="error-profiletext "></span>
+                    <button type="submit " class="popap__button popap__save "></button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                    <button type="submit" class="popap__save "></button>
-                </div>
+
+
+
+
+    <div class="popap popap-mesto ">
+        <div class="popap__conteiner ">
+            <div class="popap__body ">
+                <input type="image " src="images/Close Icon (1).svg " class="popap-mesto__close-botton " />
+                <form class="popap__form" name="newmesto " novalidate>
+                    <h2 class=" popap__title ">Новое место</h2>
+                    <input type="text " class="popap__input popap__new-mesto " placeholder="Название " id="namemesto " required minlength="2" maxlength="30" />
+                    <span class="popap__span " id="error-namemesto "></span>
+                    <input type="url " class="popap__input popap__link " placeholder="Ссылку на картинку " id="url " required/>
+                    <span class="popap__span " id="error-url "></span>
+                    <button type="submit " class="popap__button popap__create "></button>
+                </form>
             </div>
         </div>
     </div>
-    <div class="popap popap-mesto">
-        <div class="popap__conteiner">
-            <div class="popap__body">
-                <input type="image" src="images/Close Icon (1).svg" class="popap-mesto__close-botton" />
-                <div class="popap__form">
-                    <h2 class=" popap__title">Новое место</h2>
-                    <input type="text" class="popap__new-mesto" placeholder="Название" />
-                    <input type="url" class="popap__link" placeholder="Ссылку на картинку" />
-                    <button type="submit" class="popap__create"></button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
     <div class='popap popap__big-image'>
         <div class='popap__fullimage'>
-            <button class="popap__fullimage-button" type="button"></button>
-            <img src="" alt="" class="popap__image">
-            <h2 class="popap__img-text"></h2>
+            <button class="popap__fullimage-button " type="button "></button>
+            <img src=" " alt=" " class="popap__image ">
+            <h2 class="popap__img-text "></h2>
         </div>
     </div>
-    <script src="index.js ">
+
+
+
+
+    <script type="module" src="index.js ">
     </script>
+
+
+
+
+
 </body>
 
 </html>

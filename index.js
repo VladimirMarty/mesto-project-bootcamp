@@ -1,3 +1,4 @@
+import enableValidation from "./components/validate.js";
 // массив карточек 
 const initialCards = [{
         name: 'Ереван',
@@ -50,13 +51,22 @@ const bigImage = document.querySelector(".popap__image");
 const bigImagePopap = document.querySelector(".popap__big-image");
 const closeBigImage = document.querySelector(".popap__fullimage-button");
 const bigImageName = document.querySelector(".popap__img-text");
+
+
+
+
 // открываем попап профиля 
 openPopapProfile.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     popapProfile.classList.add("active");
     newProfileName.value = "";
     newProfileBg.value = "";
+    enableValidation();
 });
+
+
+
+
 // сохраняем данные попапа профиля 
 saveButton.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
@@ -64,12 +74,20 @@ saveButton.addEventListener("click", (eventClick) => {
     profileBg.textContent = newProfileBg.value;
     popapProfile.classList.remove("active");
 });
+
+
+
+
 // закрываем попап профиля 
 closePopap.addEventListener("click", (eventClick) => {
-        eventClick.preventDefault();
-        popapProfile.classList.remove("active");
-    })
-    // функция попапа с большим фото 
+    eventClick.preventDefault();
+    popapProfile.classList.remove("active");
+})
+
+
+
+
+// функция попапа с большим фото 
 function openImageOnScreen(item) {
     bigImagePopap.classList.add('active');
     bigImage.src = item.src;

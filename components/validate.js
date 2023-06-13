@@ -33,7 +33,7 @@ function disableButton(submitButton) {
     submitButton.disabled = true;
 };
 
-function chekValid(input, form) {
+function chekValid(input) {
 
     if (input.validity.valid) {
         hideError(input);

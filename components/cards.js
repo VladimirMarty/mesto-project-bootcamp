@@ -1,3 +1,4 @@
+import { open } from "./openClose";
 const templateElement = document.getElementById('elementTemplate').content.querySelector('.element');
 const elementsConteiner = document.querySelector('.elements');
 const bigImagePopap = document.querySelector(".popap__big-image");
@@ -82,7 +83,7 @@ function handleDeleteCard(item) {
 
 // функция попапа с большим фото 
 function openImageOnScreen(item) {
-    bigImagePopap.classList.add('active');
+    open(bigImagePopap);
     bigImage.src = item.src;
     bigImage.alt = item.alt;
     bigImageName.textContent = item.alt;

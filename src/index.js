@@ -1,7 +1,8 @@
-import enableValidation from "./components/validate.js";
-import { open } from "./components/openClose.js";
-import { close } from "./components/openClose.js";
-import { createNewElement } from "./components/cards.js";
+import '../pages/index.css';
+import enableValidation from "../components/validate.js";
+import { open } from "../components/openClose.js";
+import { close } from "../components/openClose.js";
+import { createNewElement } from "../components/cards.js";
 import {
     popapProfile,
     openPopapProfile,
@@ -18,7 +19,7 @@ import {
     inputNewMestoPhoto,
     createNewElementButton,
     closeBigImage,
-} from "./components/data.js";
+} from "../components/data.js";
 
 
 // открываем попап профиля 

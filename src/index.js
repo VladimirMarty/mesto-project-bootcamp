@@ -41,7 +41,7 @@ openPopapProfile.addEventListener("click", (eventClick) => {
     open(popapProfile);
     newProfileName.value = profileName.textContent;
     newProfileBg.value = profileBg.textContent;
-
+    enableValidation();
 });
 
 function submitProfile(event) {
@@ -64,7 +64,7 @@ popapProfile.addEventListener('submit', submitProfile);
 openPopapMesto.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     open(popapMesto);
-
+    enableValidation();
 });
 
 function handleFormSubmit(event) {
@@ -89,7 +89,7 @@ buttonEditAvatar.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     avatarForm.reset();
     open(popapEditAvatar);
-
+    enableValidation();
 });
 
 function handleSubmitAvatarForm(event) {
@@ -124,10 +124,3 @@ Promise.all([loadingProfile(), getCardsApi()])
     })
     .catch((e) => console.log(e));
 closePopap.forEach(button => button.addEventListener('click', close));
-
-const validate = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    formSelector: '.popup__form',
-};
-enableValidation(validate);

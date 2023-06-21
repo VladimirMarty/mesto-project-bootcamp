@@ -7,9 +7,6 @@ export const elementsConteiner = document.querySelector('.elements');
 const bigImagePopap = document.querySelector(".popap__big-image");
 const bigImage = document.querySelector(".popap__image");
 const bigImageName = document.querySelector(".popap__img-text");
-
-
-
 export function createNewElement(name, link, userId, item) {
     const cardElement = templateElement.cloneNode(true);
     const nameElement = cardElement.querySelector(".element__paragraph");

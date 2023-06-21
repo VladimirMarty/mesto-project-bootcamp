@@ -26,6 +26,8 @@ import {
     profileAvatar,
     avatarForm,
     closePopap,
+    popapBtn,
+    cardsForm
 } from "../components/data.js";
 import { loadingProfile } from "../components/api.js";
 import { getCardsApi } from "../components/api.js";
@@ -39,7 +41,7 @@ openPopapProfile.addEventListener("click", (eventClick) => {
     open(popapProfile);
     newProfileName.value = profileName.textContent;
     newProfileBg.value = profileBg.textContent;
-
+    enableValidation();
 });
 
 function submitProfile(event) {
@@ -56,6 +58,7 @@ function submitProfile(event) {
         .finally(() => {
             event.submitter.textContent = 'Сохранить'
         })
+    enableValidation();
 };
 popapProfile.addEventListener('submit', submitProfile);
 openPopapMesto.addEventListener("click", (eventClick) => {
@@ -72,15 +75,15 @@ function handleFormSubmit(event) {
             const newCard = createNewElement(res.name, res.link, userId, res);
             elementsConteiner.prepend(newCard);
             close()
-            elementForm.reset();
+            cardsForm.reset();
         })
         .catch(e => console.log(e))
         .finally(() => {
             event.submitter.textContent = 'Сохранить'
         })
-
+    enableValidation();
 };
-elementForm.addEventListener('submit', handleFormSubmit);
+cardsForm.addEventListener('submit', handleFormSubmit);
 elementsConteiner.addEventListener("submit", handleFormSubmit);
 buttonEditAvatar.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
@@ -95,12 +98,13 @@ function handleSubmitAvatarForm(event) {
     newAvatar(inputAvatarUrl.value)
         .then((res) => {
             profileAvatar.src = res.avatar;
-            closePopup();
+            close();
         })
         .catch((e) => console.log(e))
         .finally(() => {
             event.submitter.textContent = "Сохранить";
         });
+    enableValidation();
 }
 popapEditAvatar.addEventListener("submit", handleSubmitAvatarForm);
 
@@ -116,12 +120,16 @@ Promise.all([loadingProfile(), getCardsApi()])
             const newCard = createNewElement(item.name, item.link, userId, item);
             elementsConteiner.append(newCard);
         });
+
     })
     .catch((e) => console.log(e));
-closePopap.forEach(button => button.addEventListener('click', close));
-const validate = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    formSelector: '.popup__form',
-}
-enableValidation(validate)
+closePopap.addEventListener('click', (eventClick) => {
+    eventClick.preventDefault();
+    close();
+});
+// const validate = {
+//     inputSelector: '.popup__input',
+//     submitButtonSelector: '.popup__button',
+//     formSelector: '.popup__form',
+// };
+// enableValidation(validate);

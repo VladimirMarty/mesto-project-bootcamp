@@ -42,7 +42,7 @@ function chekValid(input) {
     }
 };
 
-function hideError(input, ) {
+function hideError(input) {
     const spanId = `error-${input.id}`;
     const errorField = document.getElementById(spanId);
     errorField.textContent = '';

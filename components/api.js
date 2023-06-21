@@ -6,7 +6,6 @@ export const config = {
     }
 }
 
-
 function checkAnswer(res) {
     if (res.ok) {
         return res.json();
@@ -14,14 +13,12 @@ function checkAnswer(res) {
     return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-
 export function loadingProfile() {
     return fetch(`${config.baseUrl}/users/me`, {
             headers: config.headers
         })
         .then(res => checkAnswer(res))
 }
-
 
 export function newAvatar(avatar) {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
@@ -34,14 +31,12 @@ export function newAvatar(avatar) {
         .then((res) => checkAnswer(res))
 }
 
-
 export function getCardsApi() {
     return fetch(`${config.baseUrl}/cards`, {
             headers: config.headers
         })
         .then(res => checkAnswer(res))
 }
-
 
 export function newProfile(name, about) {
     return fetch(`${config.baseUrl}/users/me`, {
@@ -55,7 +50,6 @@ export function newProfile(name, about) {
         .then((res) => checkAnswer(res))
 }
 
-
 export function addCardFromServer(name, link) {
     return fetch(`${config.baseUrl}/cards`, {
             method: 'POST',
@@ -68,7 +62,6 @@ export function addCardFromServer(name, link) {
         .then((res) => checkAnswer(res))
 }
 
-
 export function deleteCardFromServer(cardId) {
     return fetch(`${config.baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
@@ -77,7 +70,6 @@ export function deleteCardFromServer(cardId) {
         .then((res) => checkAnswer(res))
 }
 
-
 export function addLikeFromServer(cardId) {
     return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
             method: 'PUT',
@@ -85,7 +77,6 @@ export function addLikeFromServer(cardId) {
         })
         .then((res) => checkAnswer(res))
 }
-
 
 export function deleteLikeFromServer(cardId) {
     return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {

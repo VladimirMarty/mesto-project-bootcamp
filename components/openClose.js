@@ -9,7 +9,6 @@ export function close() {
     const popapOpen = document.querySelector('.active');
     popapOpen.classList.remove('active');
     document.removeEventListener('keydown', closeByEsc);
-    popapOpen.removeEventListener('click', closeByOverlay);
 };
 
 

@@ -45,7 +45,7 @@ function chekValid(input) {
 function hideError(input) {
     const spanId = `error-${input.id}`;
     const errorField = document.getElementById(spanId);
-    errorField.textContent = '';
+    errorField.textContent = "";
 };
 
 function showError(input, errorMesage) {

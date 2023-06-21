@@ -41,7 +41,7 @@ openPopapProfile.addEventListener("click", (eventClick) => {
     open(popapProfile);
     newProfileName.value = profileName.textContent;
     newProfileBg.value = profileBg.textContent;
-    enableValidation();
+
 });
 
 function submitProfile(event) {
@@ -58,7 +58,7 @@ function submitProfile(event) {
         .finally(() => {
             event.submitter.textContent = 'Сохранить'
         })
-    enableValidation();
+
 };
 popapProfile.addEventListener('submit', submitProfile);
 openPopapMesto.addEventListener("click", (eventClick) => {
@@ -81,7 +81,7 @@ function handleFormSubmit(event) {
         .finally(() => {
             event.submitter.textContent = 'Сохранить'
         })
-    enableValidation();
+
 };
 cardsForm.addEventListener('submit', handleFormSubmit);
 elementsConteiner.addEventListener("submit", handleFormSubmit);
@@ -104,7 +104,7 @@ function handleSubmitAvatarForm(event) {
         .finally(() => {
             event.submitter.textContent = "Сохранить";
         });
-    enableValidation();
+
 }
 popapEditAvatar.addEventListener("submit", handleSubmitAvatarForm);
 
@@ -123,13 +123,11 @@ Promise.all([loadingProfile(), getCardsApi()])
 
     })
     .catch((e) => console.log(e));
-closePopap.addEventListener('click', (eventClick) => {
-    eventClick.preventDefault();
-    close();
-});
-// const validate = {
-//     inputSelector: '.popup__input',
-//     submitButtonSelector: '.popup__button',
-//     formSelector: '.popup__form',
-// };
-// enableValidation(validate);
+closePopap.forEach(button => button.addEventListener('click', close));
+
+const validate = {
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    formSelector: '.popup__form',
+};
+enableValidation(validate);

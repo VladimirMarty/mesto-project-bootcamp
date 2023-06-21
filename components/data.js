@@ -1,7 +1,7 @@
 export const popapProfile = document.querySelector(".popap-profile");
 export const popapConteiner = document.querySelector(".popap__conteiner");
 export const openPopapProfile = document.querySelector(".profile__reduct-botton");
-export const closePopap = document.querySelector(".popap__close-botton");
+export const closePopap = document.querySelectorAll(".popap__close-botton");
 export const saveButton = document.querySelector(".popap__save");
 export const profileName = document.querySelector(".profile__title");
 export const profileBg = document.querySelector(".profile__subtitle");

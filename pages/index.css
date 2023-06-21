@@ -42,3 +42,7 @@
 @import url(../blocks/popap/__image/popap__image.css);
 @import url(../blocks/popap/__img-text/popap__img-text.css);
 @import url(../blocks/popap/__span/popap__span.css);
+@import url(../blocks/profile/__div/profile__div.css);
+@import url(../blocks/element/__div/element__div.css);
+@import url(../blocks/element/__like-counter/element__like-counter.css);
+@import url(../blocks/popap/__button/popap__button.css);

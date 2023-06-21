@@ -22,7 +22,9 @@
 
             <section class="profile ">
                 <div class="profile__main">
-                    <img src="images/WHuucfyvDNQ.jpg" alt="аватарка" class="profile__avatar">
+                    <div class="profile__div">
+                        <img src="images/WHuucfyvDNQ.jpg" alt="аватарка" class="profile__avatar">
+                    </div>
                     <div class=" profile__info">
                         <div class="profile__conteiner">
                             <h1 class="profile__title">Тихон</h1>
@@ -57,12 +59,14 @@
                         <img src="" alt="" class="element__image">
                         <div class="element__bottom">
                             <p class="element__paragraph"></p>
+                            <div class="element__div">
                             <button type='button' class="element__like"></button>
+                            <p class="element__like-counter"></p>
                         </div>
-                        <button type="button" class="element__trash" aria-label="Delete"></button>
+                        </div>
+                     <button type="button" class="element__trash" aria-label="Delete"></button>
                     </div>
                     </template>
-
 
 
 
@@ -97,12 +101,12 @@
     <div class="popap popap-mesto ">
         <div class="popap__conteiner ">
             <div class="popap__body ">
-                <input type="image " src="images/Close Icon (1).svg " class="popap-mesto__close-botton " />
+                <input type="image " src="images/Close Icon (1).svg " class="popap__close-botton" />
                 <form class="popap__form" name="newmesto " novalidate>
                     <h2 class=" popap__title ">Новое место</h2>
                     <input type="text " class="popap__input popap__new-mesto " placeholder="Название " id="namemesto " required minlength="2" maxlength="30" />
                     <span class="popap__span " id="error-namemesto "></span>
-                    <input type="url " class="popap__input popap__link " placeholder="Ссылку на картинку " id="url " required/>
+                    <input type="url " class="popap__input popap__link " placeholder="Ссылку на картинку " id="url" required/>
                     <span class="popap__span " id="error-url "></span>
                     <button type="submit " class="popap__button popap__create "></button>
                 </form>
@@ -116,12 +120,29 @@
 
     <div class='popap popap__big-image'>
         <div class='popap__fullimage'>
-            <button class="popap__fullimage-button " type="button "></button>
+            <button class="popap__close-botton" type="button "></button>
             <img src=" " alt=" " class="popap__image ">
             <h2 class="popap__img-text "></h2>
         </div>
     </div>
 
+
+
+
+    <div class="popap popap_avatar">
+        <div class="popap__conteiner ">
+            <div class="popap__body ">
+                <input type="image " src="images/Close Icon (1).svg " class="popap__close-botton" />
+                <form class="popap__form popap__form_avatar" name="avatar" novalidate>
+                    <h2 class="popap__text">Обновить аватар</h2>
+                    <input type="url" class="popap__input input_avatar" id="avatar" placeholder="Ссылка на аватарку" required minlength="3">
+                    <span class="popap__span" id="error-avatar"></span>
+                    <button type="submit " class="popap__button popap__create "></button>
+                    <button class="popap__button" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- 
 

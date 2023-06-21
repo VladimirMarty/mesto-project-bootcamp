@@ -1,4 +1,4 @@
-import '../pages/index.css';
+import "../pages/index.css";
 import enableValidation from "../components/validate.js";
 import { open } from "../components/openClose.js";
 import { close } from "../components/openClose.js";
@@ -9,6 +9,7 @@ import {
     saveButton,
     profileName,
     profileBg,
+    elementForm,
     newProfileName,
     newProfileBg,
     elementsConteiner,
@@ -19,93 +20,108 @@ import {
     inputNewMestoPhoto,
     createNewElementButton,
     closeBigImage,
+    popapEditAvatar,
+    buttonEditAvatar,
+    inputAvatarUrl,
+    profileAvatar,
+    avatarForm,
+    closePopap,
 } from "../components/data.js";
+import { loadingProfile } from "../components/api.js";
+import { getCardsApi } from "../components/api.js";
+import { newAvatar } from "../components/api.js";
+import { newProfile } from "../components/api.js";
+import { addCardFromServer } from "../components/api.js";
+let userId;
 
-
-// открываем попап профиля 
 openPopapProfile.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     open(popapProfile);
     newProfileName.value = profileName.textContent;
     newProfileBg.value = profileBg.textContent;
-    enableValidation();
+
 });
 
+function submitProfile(event) {
+    event.preventDefault();
+    event.submitter.textContent = 'Сохранение...'
+    newProfile(newProfileName.value, newProfileBg.value)
+        .then((res) => {
+            profileName.textContent = res.name,
+                profileBg.textContent = res.about;
+            close()
+        })
 
-// сохраняем данные попапа профиля 
-saveButton.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    profileName.textContent = newProfileName.value;
-    profileBg.textContent = newProfileBg.value;
-
-    close();
-});
-
-
-
-// закрываем попап с большой картинкой 
-closeBigImage.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    close();
-});
-
-
-// открыть попап карточки 
+    .catch(e => console.log(e))
+        .finally(() => {
+            event.submitter.textContent = 'Сохранить'
+        })
+};
+popapProfile.addEventListener('submit', submitProfile);
 openPopapMesto.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
-
     open(popapMesto);
-    enableValidation();
+
 });
 
-function handleFormSubmit() {
-    const newElement = createNewElement(inputNewMestoName.value, inputNewMestoPhoto.value);
-    elementsConteiner.append(newElement);
+function handleFormSubmit(event) {
+    event.preventDefault();
+    event.submitter.textContent = 'Сохранение...'
+    addCardFromServer(inputNewMestoName.value, inputNewMestoPhoto.value)
+        .then((res) => {
+            const newCard = createNewElement(res.name, res.link, userId, res);
+            elementsConteiner.prepend(newCard);
+            close()
+            elementForm.reset();
+        })
+        .catch(e => console.log(e))
+        .finally(() => {
+            event.submitter.textContent = 'Сохранить'
+        })
+
 };
-
-// выводим карточку с введенными данными 
-createNewElementButton.addEventListener('click', (eventClick) => {
+elementForm.addEventListener('submit', handleFormSubmit);
+elementsConteiner.addEventListener("submit", handleFormSubmit);
+buttonEditAvatar.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
-    handleFormSubmit();
-    close();
-})
+    avatarForm.reset();
+    open(popapEditAvatar);
 
-// закрываем попап карточки 
-closePopapMesto.addEventListener("click", (eventClick) => {
-    eventClick.preventDefault();
-    close();
 });
 
-popapProfile.addEventListener('submit', saveButton);
+function handleSubmitAvatarForm(event) {
+    event.preventDefault();
+    event.submitter.textContent = "Сохранение...";
+    newAvatar(inputAvatarUrl.value)
+        .then((res) => {
+            profileAvatar.src = res.avatar;
+            closePopup();
+        })
+        .catch((e) => console.log(e))
+        .finally(() => {
+            event.submitter.textContent = "Сохранить";
+        });
+}
+popapEditAvatar.addEventListener("submit", handleSubmitAvatarForm);
 
-elementsConteiner.addEventListener('submit', handleFormSubmit);
+Promise.all([loadingProfile(), getCardsApi()])
+    .then(([userData, Cards]) => {
+        userId = userData._id;
+        profileName.textContent = userData.name;
+        profileBg.textContent = userData.about;
+        profileAvatar.src = userData.avatar;
+        profileAvatar.alt = userData.name;
 
-
-
-
-// // задаем попап профиля 
-// const popapProfile = document.querySelector(".popap-profile");
-// const popapConteiner = document.querySelector(".popap__conteiner");
-// const openPopapProfile = document.querySelector(".profile__reduct-botton");
-// const closePopap = document.querySelector(".popap__close-botton");
-// const saveButton = document.querySelector(".popap__save");
-// const profileName = document.querySelector(".profile__title");
-// const profileBg = document.querySelector(".profile__subtitle");
-// const newProfileName = document.querySelector(".popap__name");
-// const newProfileBg = document.querySelector(".popap__yours");
-// // задаем попап карточек 
-// const templateElement = document.getElementById('elementTemplate').content.querySelector('.element');
-// const elementsConteiner = document.querySelector('.elements');
-// const popapMesto = document.querySelector(".popap-mesto");
-// const openPopapMesto = document.querySelector(".profile__botton");
-// const closePopapMesto = document.querySelector(".popap-mesto__close-botton");
-// const inputNewMestoName = document.querySelector(".popap__new-mesto");
-// const inputNewMestoPhoto = document.querySelector(".popap__link");
-// // const mestoConteiner = document.querySelector(".elements");
-// const elementForm = document.querySelector(".popap__form");
-// const createNewElementButton = document.querySelector(".popap__create");
-// // задаем попап с большим фото 
-// const bigImage = document.querySelector(".popap__image");
-// const bigImagePopap = document.querySelector(".popap__big-image");
-// const closeBigImage = document.querySelector(".popap__fullimage-button");
-// const bigImageName = document.querySelector(".popap__img-text");
+        Cards.forEach((item) => {
+            const newCard = createNewElement(item.name, item.link, userId, item);
+            elementsConteiner.append(newCard);
+        });
+    })
+    .catch((e) => console.log(e));
+closePopap.forEach(button => button.addEventListener('click', close));
+const validate = {
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    formSelector: '.popup__form',
+}
+enableValidation(validate)

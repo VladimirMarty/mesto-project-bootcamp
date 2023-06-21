@@ -1,0 +1,26 @@
+.profile__div {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    z-index: 1;
+    position: relative;
+    margin-right: 30px;
+}
+
+.profile__div:hover::before {
+    content: '';
+    width: 120px;
+    height: 120px;
+    background-image: url(../../../images/Vector.png);
+    background-color: rgba(0, 0, 0, 0.8);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}

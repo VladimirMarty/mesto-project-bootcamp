@@ -1,12 +1,11 @@
-export default function enableValidation() {
-
-    const formList = document.querySelectorAll('.popap__form');
-    formList.forEach((form) => { setEventListener(form) });
+export default function enableValidation(settings) {
+    const formList = document.querySelectorAll(settings.formSelector);
+    formList.forEach((form) => { setEventListener(form, settings) });
 }
 
-function setEventListener(form) {
-    const inputList = form.querySelectorAll('.popap__input');
-    const submitButton = form.querySelector('.popap__button');
+function setEventListener(form, settings) {
+    const inputList = form.querySelectorAll(settings.inputSelector);
+    const submitButton = form.querySelector(settings.submitButtonSelector);
     checkFormValidity(form, submitButton);
     inputList.forEach(input => {
         input.addEventListener('input', () => {
@@ -29,7 +28,7 @@ function enableButton(submitButton) {
     submitButton.disabled = false;
 };
 
-function disableButton(submitButton) {
+export function disableButton(submitButton) {
     submitButton.disabled = true;
 };
 

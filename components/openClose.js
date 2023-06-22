@@ -5,10 +5,17 @@ export function open(item) {
 
 };
 
-export function close() {
-    const popapOpen = document.querySelector('.active');
-    popapOpen.classList.remove('active');
+// export function close() {
+//     const popapOpen = document.querySelector('.active');
+//     popapOpen.classList.remove('active');
+//     document.removeEventListener('keydown', closeByEsc);
+//     popapOpen.removeEventListener('click', closeByOverlay);
+// };
+export function close(item) {
+    item = document.querySelector('.active');
+    item.classList.remove('active');
     document.removeEventListener('keydown', closeByEsc);
+    item.removeEventListener('click', closeByOverlay);
 };
 
 
@@ -21,6 +28,6 @@ function closeByEsc(e) {
 function closeByOverlay(e) {
     console.log(e)
     if (e.target.classList.contains('active')) {
-        close();
+        close(e.target);
     };
 };

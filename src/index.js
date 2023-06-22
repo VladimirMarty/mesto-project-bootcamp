@@ -123,4 +123,22 @@ Promise.all([loadingProfile(), getCardsApi()])
 
     })
     .catch((e) => console.log(e));
-closePopap.forEach(button => button.addEventListener('click', close));
+// closePopap.forEach(button => button.addEventListener('click', close));
+
+
+const popaps = document.querySelectorAll('.popap')
+    // popaps.forEach(
+    //     closePopap.addEventListener('click', function() {
+    //         const popap = closePopap.closest('.popap');
+    //         close(popap)
+
+//     })
+// );
+
+
+closePopap.forEach((card) => {
+    card.addEventListener("click", () => {
+        const button = card.closest(".popup");
+        close(button);
+    });
+});

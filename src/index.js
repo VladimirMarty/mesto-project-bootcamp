@@ -131,6 +131,6 @@ let settings = {
     formSelector: ".popap__form",
     inputSelector: ".popap__input",
     submitButtonSelector: ".popap__button",
-    inputErrorClass: ".popap__input_error",
+    inputErrorClass: "popap__input_error",
 };
 enableValidation(settings);

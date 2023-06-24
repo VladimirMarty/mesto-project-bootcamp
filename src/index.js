@@ -51,7 +51,7 @@ function submitProfile(event) {
     newProfile(newProfileName.value, newProfileBg.value)
         .then((res) => {
             (profileName.textContent = res.name), (profileBg.textContent = res.about);
-            close();
+            close(popapProfile);
         })
 
     .catch((e) => console.log(e))
@@ -73,7 +73,7 @@ function handleFormSubmit(event) {
         .then((res) => {
             const newCard = createNewElement(userId, res);
             elementsConteiner.prepend(newCard);
-            close();
+            close(popapMesto);
             cardsForm.reset();
         })
         .catch((e) => console.log(e))
@@ -96,7 +96,7 @@ function handleSubmitAvatarForm(event) {
     newAvatar(inputAvatarUrl.value)
         .then((res) => {
             profileAvatar.src = res.avatar;
-            close();
+            close(popapEditAvatar);
         })
         .catch((e) => console.log(e))
         .finally(() => {

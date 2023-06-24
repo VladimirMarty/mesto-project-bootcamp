@@ -46,4 +46,5 @@
 @import url(../blocks/element/__div/element__div.css);
 @import url(../blocks/element/__like-counter/element__like-counter.css);
 @import url(../blocks/popap/__button/popap__button.css);
-@import url(../blocks/popap/__input_error/popap__input_error.css);
+@import url(../blocks/popap/__input/popap__input.css);
+@import url(../blocks/popap/__input/_error/popap__input_error.css);

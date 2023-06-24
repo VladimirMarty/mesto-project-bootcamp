@@ -20,7 +20,7 @@ export function createNewElement(userId, item) {
     nameElement.textContent = item.name;
     elementLink.src = item.link;
     elementLink.alt = item.name;
-    cardElement.id = item._id;
+
     addDeleteButton(userId, item, deleteBtn, cardElement);
     likeBtn.addEventListener("click", () => paintedLike());
     updateLike(cardLikes, likeBtn, userId);

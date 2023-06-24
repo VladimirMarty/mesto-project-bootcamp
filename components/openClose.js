@@ -5,23 +5,18 @@ export function open(item) {
 
 };
 
-// export function close() {
-//     const popapOpen = document.querySelector('.active');
-//     popapOpen.classList.remove('active');
-//     document.removeEventListener('keydown', closeByEsc);
-//     popapOpen.removeEventListener('click', closeByOverlay);
-// };
-export function close(item) {
-    item = document.querySelector('.active');
-    item.classList.remove('active');
+export function close(popap) {
+
+    popap.classList.remove('active');
     document.removeEventListener('keydown', closeByEsc);
-    item.removeEventListener('click', closeByOverlay);
+    popap.removeEventListener('click', closeByOverlay);
 };
 
 
 function closeByEsc(e) {
     if (e.key === 'Escape') {
-        close();
+        const openedPopup = document.querySelector('.active');
+        close(openedPopup);
     }
 };
 

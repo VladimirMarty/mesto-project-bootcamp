@@ -42,7 +42,7 @@ openPopapProfile.addEventListener("click", (eventClick) => {
     open(popapProfile);
     newProfileName.value = profileName.textContent;
     newProfileBg.value = profileBg.textContent;
-    // enableValidation();
+
 });
 
 function submitProfile(event) {
@@ -87,7 +87,7 @@ buttonEditAvatar.addEventListener("click", (eventClick) => {
     eventClick.preventDefault();
     avatarForm.reset();
     open(popapEditAvatar);
-    // enableValidation();
+
 });
 
 function handleSubmitAvatarForm(event) {

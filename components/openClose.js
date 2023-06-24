@@ -6,7 +6,6 @@ export function open(item) {
 };
 
 export function close(popap) {
-
     popap.classList.remove('active');
     document.removeEventListener('keydown', closeByEsc);
     popap.removeEventListener('click', closeByOverlay);
